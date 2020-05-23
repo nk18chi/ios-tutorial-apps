@@ -13,6 +13,8 @@ class MenuViewController: UIViewController {
     var collectionViewA: UICollectionView!
     private let padding: CGFloat = 16
     private let filterHeight: CGFloat = 70
+    private var categoryFilters: [CategoryFilter] = CategoryFilter.getInitializeData()
+    private var filters: Set<String> = []
     
     override func loadView() {
       super.loadView()
@@ -46,12 +48,14 @@ extension MenuViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return categoryFilters.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryFilter", for: indexPath) as! CategoryFilterCollectionViewCell
-        cell.labelView.text = String(repeating: "a", count: indexPath.row + 1)
+        cell.labelView.text = categoryFilters[indexPath.row].name
+        cell.labelView.textColor = categoryFilters[indexPath.row].isOn ? .white : .mainRed
+        cell.backgroundColor = categoryFilters[indexPath.row].isOn ? .mainRed : .white
         return cell
     }
     
@@ -59,12 +63,17 @@ extension MenuViewController: UICollectionViewDataSource {
 
 extension MenuViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
+        categoryFilters[indexPath.row].isOn = !categoryFilters[indexPath.row].isOn
+        if (categoryFilters[indexPath.row].isOn) {
+            filters.insert(categoryFilters[indexPath.row].name)
+        } else {
+            filters.remove(categoryFilters[indexPath.row].name)
+        }
+        collectionViewA.reloadItems(at: [indexPath])
     }
 }
 
 extension MenuViewController: UICollectionViewDelegateFlowLayout {
-
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
     return .init(top: padding, left: 0, bottom: padding, right: 0)
   }

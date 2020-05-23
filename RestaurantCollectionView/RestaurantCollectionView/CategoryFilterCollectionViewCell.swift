@@ -9,24 +9,20 @@
 import UIKit
 
 class CategoryFilterCollectionViewCell: UICollectionViewCell {
-    
-    private let padding: CGFloat = 8
 
     let labelView: UILabel = {
         let ul = UILabel()
         ul.translatesAutoresizingMaskIntoConstraints = false
         ul.textAlignment = .center
-        ul.textColor = .mainRed
         return ul
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(labelView)
-        contentView.backgroundColor = .white
         contentView.layer.masksToBounds = true
         contentView.layer.cornerRadius = 3
-        labelView.matchParent(padding: .init(top: padding, left: padding * 2, bottom: padding, right: padding * 2))
+        labelView.matchParent()
     }
     
     required init?(coder: NSCoder) {
