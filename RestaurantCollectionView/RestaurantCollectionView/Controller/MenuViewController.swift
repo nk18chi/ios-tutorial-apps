@@ -84,6 +84,7 @@ extension MenuViewController: UICollectionViewDataSource {
 extension MenuViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if (collectionView == self.categoryFilterCV) {
+            // add and remove filter
             categoryFilterData[indexPath.row].isOn = !categoryFilterData[indexPath.row].isOn
             if (categoryFilterData[indexPath.row].isOn) {
                 curFilters.insert(categoryFilterData[indexPath.row].name.rawValue)
@@ -91,6 +92,18 @@ extension MenuViewController: UICollectionViewDelegate {
                 curFilters.remove(categoryFilterData[indexPath.row].name.rawValue)
             }
             categoryFilterCV.reloadItems(at: [indexPath])
+            
+            //fiter foods
+            foodData = Food.getInitializeData()
+            if curFilters.count > 0 {
+                foodData = foodData.filter({ (f) -> Bool in
+                    for c in f.category {
+                        if curFilters.contains(c.rawValue) { return true }
+                    }
+                    return false
+                })
+            }
+            foodCV.reloadData()
         }
     }
 }
@@ -101,7 +114,7 @@ extension MenuViewController: UICollectionViewDelegateFlowLayout {
         let size = (collectionView.frame.width - 3 * padding) / 2.0
         return CGSize(width: size, height: size)
     } else {
-        return CGSize(width: 1, height: 1) // I do not understand why this is necesarry(inseting zero does not work)... I guess because automaticSize is unstable.
+        return CGSize(width: 50, height: 50) // I do not understand why this is necesarry(inseting zero does not work)... I guess because automaticSize is unstable.
     }
   }
     
