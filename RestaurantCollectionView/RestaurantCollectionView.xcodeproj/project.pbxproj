@@ -19,6 +19,8 @@
 		B0C4B50324789ED800B04CB5 /* UIView+ConstraintLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4B4FF24789ED800B04CB5 /* UIView+ConstraintLayout.swift */; };
 		B0C4B5052479CB3900B04CB5 /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4B5042479CB3900B04CB5 /* ColorTheme.swift */; };
 		B0C4B50B2479D49200B04CB5 /* CategoryFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4B50A2479D49200B04CB5 /* CategoryFilter.swift */; };
+		B0C4B5102479E68200B04CB5 /* FoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4B50F2479E68200B04CB5 /* FoodCollectionViewCell.swift */; };
+		B0C4B5122479EAAA00B04CB5 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4B5112479EAAA00B04CB5 /* Food.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		B0C4B4FF24789ED800B04CB5 /* UIView+ConstraintLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ConstraintLayout.swift"; sourceTree = "<group>"; };
 		B0C4B5042479CB3900B04CB5 /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 		B0C4B50A2479D49200B04CB5 /* CategoryFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilter.swift; sourceTree = "<group>"; };
+		B0C4B50F2479E68200B04CB5 /* FoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCollectionViewCell.swift; sourceTree = "<group>"; };
+		B0C4B5112479EAAA00B04CB5 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +74,8 @@
 			children = (
 				B01F0D29247887C200A30A4C /* AppDelegate.swift */,
 				B01F0D2B247887C200A30A4C /* SceneDelegate.swift */,
-				B01F0D3D24788DE200A30A4C /* MenuViewController.swift */,
-				B01F0D4324789A2900A30A4C /* CategoryFilterCollectionViewCell.swift */,
+				B0C4B514247B27A200B04CB5 /* Controller */,
+				B0C4B513247B279400B04CB5 /* View */,
 				B0C4B50E2479D62700B04CB5 /* Model */,
 				B0C4B5092479CD0000B04CB5 /* Common */,
 				B0C4B4FB24789ED800B04CB5 /* Utils */,
@@ -105,8 +109,26 @@
 			isa = PBXGroup;
 			children = (
 				B0C4B50A2479D49200B04CB5 /* CategoryFilter.swift */,
+				B0C4B5112479EAAA00B04CB5 /* Food.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B0C4B513247B279400B04CB5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B01F0D4324789A2900A30A4C /* CategoryFilterCollectionViewCell.swift */,
+				B0C4B50F2479E68200B04CB5 /* FoodCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B0C4B514247B27A200B04CB5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B01F0D3D24788DE200A30A4C /* MenuViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +209,8 @@
 				B01F0D3E24788DE200A30A4C /* MenuViewController.swift in Sources */,
 				B01F0D2C247887C200A30A4C /* SceneDelegate.swift in Sources */,
 				B0C4B50024789ED800B04CB5 /* HorizontalStackView.swift in Sources */,
+				B0C4B5122479EAAA00B04CB5 /* Food.swift in Sources */,
+				B0C4B5102479E68200B04CB5 /* FoodCollectionViewCell.swift in Sources */,
 				B0C4B50224789ED800B04CB5 /* VerticalStackView.swift in Sources */,
 				B0C4B50324789ED800B04CB5 /* UIView+ConstraintLayout.swift in Sources */,
 			);

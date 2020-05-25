@@ -9,6 +9,8 @@
 import UIKit
 
 class CategoryFilterCollectionViewCell: UICollectionViewCell {
+    
+    private let padding: CGFloat = 8
 
     let labelView: UILabel = {
         let ul = UILabel()
@@ -22,7 +24,7 @@ class CategoryFilterCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(labelView)
         contentView.layer.masksToBounds = true
         contentView.layer.cornerRadius = 3
-        labelView.matchParent()
+        labelView.matchParent(padding: .init(top: padding, left: padding * 2, bottom: padding, right: padding * 2))
     }
     
     required init?(coder: NSCoder) {
